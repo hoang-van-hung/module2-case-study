@@ -1,15 +1,21 @@
 <?php
 namespace App\Controller;
 
+use App\Model\DepartmentModel;
 use App\Model\EmployeeModel;
+use App\Model\PositionModel;
 
 class EmployeeController
 {
     protected $employeeModel;
+    protected $departmentModel;
+    protected $positionModel;
 
     public function __construct()
     {
         $this->employeeModel = new EmployeeModel();
+        $this->departmentModel = new DepartmentModel();
+        $this->positionModel = new PositionModel();
     }
 
     public function employeeList()
@@ -24,17 +30,6 @@ class EmployeeController
             include "src/View/employee/employee-list.php";
         }
     }
-
-    /*public function  search($search)
-    {
-        $search='';
-        if ($_SERVER["REQUEST_METHOD"]== "POST")
-        {
-            $search = $_REQUEST['search'];
-        }
-        $employee = $this->employeeModel->searchEmployee($search);
-        include  "src/View/employee/employee-search.php";
-    }*/
 
     public function show($id)
     {
@@ -57,7 +52,6 @@ class EmployeeController
         if ($_SERVER["REQUEST_METHOD"] == "GET")
         {
             $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
-            var_dump($id."heiea");
             if ($id != 0)
             {
                 $this->employeeModel->delete($id);
@@ -69,11 +63,17 @@ class EmployeeController
 
     public function add()
     {
+
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $employees = $this->employeeModel->getAll();
+            $department_list = $this->departmentModel->departmentAll();
+            $position_list = $this->positionModel->getAll();
+//            echo "<pre>";
+//            var_dump($department_list);
             include "src/View/employee/addEmployee.php";
 
         }elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id= $_REQUEST['id'];
             $ho_ten = $_REQUEST['ho_ten'];
             $gioi_tinh = $_REQUEST['gioi_tinh'];
             $ngay_sinh = $_REQUEST['ngay_sinh'];
@@ -82,6 +82,11 @@ class EmployeeController
             $ma_phong_ban = (int)$_REQUEST['ma_phong_ban'];
             $ma_chuc_vu = (int)$_REQUEST['ma_chuc_vu'];
             $bang_cap = $_REQUEST['bang_cap'];
+            $img = $_FILES['img']['name'];
+            $img_tmp = $_FILES['img']['tmp_name'];
+            move_uploaded_file($img_tmp,'img/'.$img);
+            var_dump($img);
+
             /*var_dump($ho_ten);
             var_dump($gioi_tinh);
             var_dump($ngay_sinh);
@@ -90,7 +95,8 @@ class EmployeeController
             var_dump($ma_phong_ban);
             var_dump($ma_chuc_vu);
             var_dump($bang_cap);die();*/
-            $result = $this->employeeModel->addEmployee($ho_ten, $gioi_tinh, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap);
+            $result = $this->employeeModel->addEmployee($id, $ho_ten, $gioi_tinh, $img, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap);
+            header("location:index.php?page=employee-list");
         }
     }
 
@@ -98,7 +104,6 @@ class EmployeeController
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $id= $_REQUEST['id'];
-            var_dump($id);
             $employees = $this->employeeModel->getAll();
             include "src/View/employee/updateEmployee.php";
     }else if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -111,8 +116,6 @@ class EmployeeController
             $ma_phong_ban = (int)$_POST['ma_phong_ban'];
             $ma_chuc_vu = (int)$_POST['ma_chuc_vu'];
             $bang_cap = $_POST['bang_cap'];
-            var_dump($ho_ten);
-
             $this->employeeModel->update($ho_ten);
         }
     }

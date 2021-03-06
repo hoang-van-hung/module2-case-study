@@ -1,7 +1,7 @@
 <div class="col-12 col-md-12">
     <div class="row">
         <div class="col-12">
-            <h1>Add New Employee</h1>
+            <h1>Update Information</h1>
         </div>
         <div class="col-12">
             <form method="post">
@@ -56,7 +56,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Add Employee</button>
+                <button type="submit" class="btn btn-primary">Update</button>
                 <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
             </form>
         </div>

@@ -4,7 +4,7 @@
 namespace App\Model;
 use PDO;
 
-class PositionModel
+class DepartmentModel
 {
     protected $database;
 
@@ -14,9 +14,9 @@ class PositionModel
         $this->database = $db->connect();
     }
 
-    public function getAll()
+    public function departmentAll()
     {
-        $sql = "SELECT * FROM positions order by ma_chuc_vu ASC";
+        $sql = "SELECT * FROM departments";
         $stmt = $this->database->query($sql);
         return $stmt->fetchAll();
     }

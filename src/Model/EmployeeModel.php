@@ -14,7 +14,8 @@ class EmployeeModel
 
     public function getAll()
     {
-        $sql = "SELECT * FROM employees";
+//        $sql = "SELECT * FROM employees";
+        $sql = "SELECT * FROM v_employee_infor order by id ASC";
         $stmt = $this->database->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -31,12 +32,12 @@ class EmployeeModel
 
     public function searchEmployee($search)
     {
-        $sql = "SELECT * FROM employees";
+        $sql = "SELECT * FROM v_employee_infor";
         if (!empty($search)) {
-            $sql = "SELECT * FROM employees WHERE id =:search or ho_ten =:search";
+            $sql = "SELECT * FROM employees WHERE id  LIKE '%$search%' or ho_ten LIKE '%$search%' ";
         }
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(":search", $search);
+        //$stmt->bindParam(":search", $search);
         $stmt->execute();
         return $stmt->fetchAll();
 
@@ -58,14 +59,16 @@ class EmployeeModel
 
     }
 
-    public function addEmployee($ho_ten, $gioi_tinh, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap)
+    public function addEmployee($id, $ho_ten, $gioi_tinh,$img, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap)
     {
 
-        $sql = 'INSERT INTO employees (ho_ten,gioi_tinh,ngay_sinh,sdt, que_quan, ma_phong_ban, ma_chuc_vu, bang_cap)
- VALUE (:ho_ten, :gioi_tinh, :ngay_sinh, :sdt, :que_quan,:ma_phong_ban,:ma_chuc_vu, :bang_cap)';
+        $sql = 'INSERT INTO employees (id,ho_ten,gioi_tinh,img,ngay_sinh,sdt, que_quan, ma_phong_ban, ma_chuc_vu, bang_cap)
+ VALUE (:id, :ho_ten, :gioi_tinh, :img,:ngay_sinh, :sdt, :que_quan,:ma_phong_ban,:ma_chuc_vu, :bang_cap)';
         $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id", $id);
         $stmt->bindValue(":ho_ten", $ho_ten);
         $stmt->bindValue(":gioi_tinh", $gioi_tinh);
+        $stmt->bindValue(":img", $img);
         $stmt->bindValue(":ngay_sinh", $ngay_sinh);
         $stmt->bindValue(":sdt", $sdt);
         $stmt->bindValue(":que_quan", $que_quan);

@@ -1,22 +1,22 @@
 <?php
 namespace App\Controller;
 
-use App\Model\PositionModel;
+use App\Model\DepartmentModel;
 
-class PositionController
+class DepartmentController
 {
-    protected $positionModel;
+    protected $departmentModel;
 
     public function __construct()
     {
-        $this->positionModel = new PositionModel();
+        $this->departmentModel = new DepartmentModel();
     }
 
-    public function positionList()
+    public function departmentList()
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $position_list = $this->positionModel->getAll();
-            include "src/View/position/positionList.php";
+            $department_list = $this->departmentModel->departmentAll();
+            include "src/View/department/departmentList.php";
 
             /*} else if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $search = $_POST['search'];
@@ -26,3 +26,4 @@ class PositionController
         }
     }
 }
+
