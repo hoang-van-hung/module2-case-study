@@ -93,10 +93,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="img" class="form-label">Img</label>
-                    <input type="file" class="form-control" id="img" name="img" placeholder="" value="">
-                </div>
-                <div class="form-group">
                     <label for="ngay_sinh" class="form-label">Ngay sinh</label>
                     <input type="date" class="form-control" id="ngay sinh" name="ngay_sinh" placeholder="" value="13-06-1984">
                 </div>
@@ -133,6 +129,10 @@
                         <option value="Cao dang">Cao dang</option>
                         <option value="Trung cap">Trung cap</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="img" class="form-label">Img</label>
+                    <input type="file" class="form-control" id="img" name="img" placeholder="" value="">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Add Employee</button>

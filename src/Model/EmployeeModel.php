@@ -23,7 +23,7 @@ class EmployeeModel
 
     public function detail($id)
     {
-        $sql = "select * from employees where id =:id";
+        $sql = "select * from v_employee_infor where id =:id";
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -43,19 +43,22 @@ class EmployeeModel
 
     }
 
-    public function updateStatus($ho_ten)
+    public function updateStatus( $ho_ten, $gioi_tinh, $img, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap)
     {
-        $sql = 'UPDATE employees SET ho_ten=:ho_ten WHERE id=:id';
+        $sql = 'UPDATE employees SET ho_ten=:ho_ten,gioi_tinh=:gioi_tinh,img=:img,ngay_sinh=:ngay_sinh,
+                     sdt=:sdt,que_quan=:que_quan,ma_phong_ban=:ma_phong_ban,ma_chuc_vu=:ma_chuc_vu,bang_cap=:bang_cap WHERE id=:id';
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(":ho_ten", $ho_ten);
-//        $stmt->bindParam(":gioi_tinh", $gioi_tinh);
-//        $stmt->bindParam(":ngay_sinh", $ngay_sinh);
-//        $stmt->bindParam(":sdt", $sdt);
-//        $stmt->bindParam(":que_quan", $que_quan);
-//        $stmt->bindParam(":ma_phong_ban", $ma_phong_ban);
-//        $stmt->bindParam(":ma_chuc_vu", $ma_chuc_vu);
-//        $stmt->bindParam(":bang_cap", $bang_cap);
+        $stmt->bindParam(":gioi_tinh", $gioi_tinh);
+        $stmt->bindParam(":ngay_sinh", $ngay_sinh);
+        $stmt->bindParam(":sdt", $sdt);
+        $stmt->bindParam(":que_quan", $que_quan);
+        $stmt->bindParam(":ma_phong_ban", $ma_phong_ban);
+        $stmt->bindParam(":ma_chuc_vu", $ma_chuc_vu);
+        $stmt->bindParam(":bang_cap", $bang_cap);
+        $stmt->bindParam(":img", $img);
         $stmt->execute();
+        var_dump($stmt->execute());
 
     }
 
@@ -81,6 +84,7 @@ class EmployeeModel
 
     public function delete($id)
     {
+        var_dump("part2");
         $sql = 'DELETE FROM employees WHERE id =:id';
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(":id", $id);

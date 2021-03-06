@@ -19,9 +19,10 @@
         <td><?php echo $employee['ten_phong_ban'] ?></td>
         <td><?php echo $employee['ten_chuc_vu'] ?></td>
         <td><?php echo $employee['bang_cap'] ?></td>
-<!--        <td><button><a href="index.php?page=employee-update&id=--><?php // echo $employee[0]['id'] ?><!--">Update</a></button></td>-->
-<!--        <td><button><a href="index.php?page=employee-delete&id=--><?php // echo $employee[0]['id'] ?><!--">Delete</a></button></td>-->
-
+        <td>
+        <td><button><a onclick="return confirm('Do you want to delete this employee <?php  echo $employee['ho_ten'] ?>')"
+                       href="index.php?page=employee-delete&id=<?php  echo $employee['id'] ?>">Delete</a></button></td>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

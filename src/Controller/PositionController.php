@@ -15,7 +15,7 @@ class PositionController
     public function positionList()
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $position_list = $this->positionModel->getAll();
+            $position_list = $this->positionModel->positionList();
             include "src/View/position/positionList.php";
 
             /*} else if ($_SERVER["REQUEST_METHOD"] == "POST") {

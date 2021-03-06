@@ -27,12 +27,12 @@
     </tr>
     <tr>
         <th>Departments ID</th>
-        <td> <?php  echo $employee[0]['ma_phong_ban'] ?></td>
+        <td> <?php  echo $employee[0]['ten_phong_ban'] ?></td>
 
     </tr>
     <tr>
         <th>Position ID</th>
-        <td> <?php  echo $employee[0]['ma_chuc_vu'] ?></td>
+        <td> <?php  echo $employee[0]['ten_chuc_vu'] ?></td>
 
     </tr>
     <tr>
@@ -40,5 +40,5 @@
         <td> <?php  echo $employee[0]['bang_cap'] ?></td>
     </tr>
     <td><button><a href="index.php?page=employee-update&id=<?php  echo $employee[0]['id'] ?>">Update</a></button></td>
-    <td><button><a href="index.php?page=employee-delete&id=<?php  echo $employee[0]['id'] ?>">Delete</a></button></td>
+    <td><button><a onclick="return confirm('Do you want to delete this employee <?php  echo $employee[0]['ho_ten'] ?>')" href="index.php?page=employee-delete&id=<?php  echo $employee[0]['id'] ?>">Delete</a></button></td>
 </table>

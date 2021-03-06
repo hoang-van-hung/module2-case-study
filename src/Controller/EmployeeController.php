@@ -48,17 +48,11 @@ class EmployeeController
 
     public function delete($id)
     {
-        $employee = $this->employeeModel->findById($id);
-        if ($_SERVER["REQUEST_METHOD"] == "GET")
-        {
-            $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
-            if ($id != 0)
-            {
-                $this->employeeModel->delete($id);
-                header("location:index.php?page=employee-list");
-            }
-        }
-        include "src/View/employee/inforEmployee.php";
+        var_dump("part1");
+        var_dump($id);
+        $id= $_REQUEST['id'];
+        $this->employeeModel->delete($id);
+        $this->employeeList();
     }
 
     public function add()
@@ -67,7 +61,7 @@ class EmployeeController
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $employees = $this->employeeModel->getAll();
             $department_list = $this->departmentModel->departmentAll();
-            $position_list = $this->positionModel->getAll();
+            $position_list = $this->positionModel->positionList();
 //            echo "<pre>";
 //            var_dump($department_list);
             include "src/View/employee/addEmployee.php";
@@ -85,7 +79,6 @@ class EmployeeController
             $img = $_FILES['img']['name'];
             $img_tmp = $_FILES['img']['tmp_name'];
             move_uploaded_file($img_tmp,'img/'.$img);
-            var_dump($img);
 
             /*var_dump($ho_ten);
             var_dump($gioi_tinh);
@@ -104,19 +97,29 @@ class EmployeeController
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $id= $_REQUEST['id'];
-            $employees = $this->employeeModel->getAll();
+            $employees = $this->employeeModel->detail($id);
+            $department_list = $this->departmentModel->departmentAll();
+            $position_list = $this->positionModel->positionList();
             include "src/View/employee/updateEmployee.php";
+            echo "<pre>";
+            var_dump($employees);
     }else if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            $ho_ten = $_POST['ho_ten'];
-            $gioi_tinh = $_POST['gioi_tinh'];
-            $ngay_sinh = $_POST['ngay_sinh'];
-            $sdt = $_POST['sdt'];
-            $que_quan = $_POST['que_quan'];
-            $ma_phong_ban = (int)$_POST['ma_phong_ban'];
-            $ma_chuc_vu = (int)$_POST['ma_chuc_vu'];
-            $bang_cap = $_POST['bang_cap'];
-            $this->employeeModel->update($ho_ten);
+            $ho_ten = $_REQUEST['ho_ten'];
+            $gioi_tinh = $_REQUEST['gioi_tinh'];
+            $ngay_sinh = $_REQUEST['ngay_sinh'];
+            $sdt = $_REQUEST['sdt'];
+            $que_quan = $_REQUEST['que_quan'];
+            $ma_phong_ban = (int)$_REQUEST['ma_phong_ban'];
+            $ma_chuc_vu = (int)$_REQUEST['ma_chuc_vu'];
+            $bang_cap = $_REQUEST['bang_cap'];
+            $img = $_FILES['img']['name'];
+
+            if ($img ==NULL){
+                    $img=$_REQUEST['old_img'];
+            }
+
+            $this->employeeModel->update($ho_ten, $gioi_tinh, $img, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap);
         }
     }
 
