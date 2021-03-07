@@ -16,7 +16,7 @@ class DepartmentController
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $department_list = $this->departmentModel->departmentAll();
-            include "src/View/department/departmentList.php";
+            include "src/View/department/department-list.php";
 
             /*} else if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $search = $_POST['search'];
@@ -24,6 +24,10 @@ class DepartmentController
                 include "src/View/employee/employee-list.php";
             }*/
         }
+    }
+    public function departmentAdd()
+    {
+
     }
 }
 

@@ -28,7 +28,8 @@ $departmentController = new DepartmentController();
 </form>
 <a href="index.php?page=employee-list">Danh sach nhan vien</a> <br>
 <a href="index.php?page=employee-add">Them nhan vien</a> <br>
-<a href="index.php?page=position-list">Chuc vu</a> <br>
+<a href="index.php?page=position-list">Chuc vu</a>
+<br>
 <a href="index.php?page=department-list">Phong ban</a>
 <br/>
 <?php
@@ -54,6 +55,21 @@ switch ($page) {
     case 'position-list':
         $positionController->positionList();
         break;
+
+    case 'position-add':
+        $positionController->positionAdd();
+        break;
+
+    case 'position-delete':
+        $id= $_REQUEST['id'];
+        $positionController->delete($id);
+        break;
+
+    case 'position-update':
+        $id= $_REQUEST['id'];
+        $positionController->positionUpdate();
+        break;
+
     case 'department-list':
         $departmentController->departmentList();
         break;

@@ -4,6 +4,7 @@
     <tr>
         <th>ID</th>
         <th>Full Name</th>
+        <th>Img</th>
         <th>Department</th>
         <th>Role</th>
         <th>Level</th>

@@ -77,10 +77,10 @@
         </div>
         <div class="col-12">
             <form method="post" enctype="multipart/form-data">
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="id" class="form-label">ID</label>
                     <input type="text" class="form-control" id="id" name="id" placeholder="" value="" >
-                </div>
+                </div>-->
                 <div class="form-group">
                     <label for="ho_ten" class="form-label">Ho ten</label>
                     <input type="text" class="form-control" id="ho_ten" name="ho_ten" placeholder="" value="To Huu" >
@@ -99,6 +99,10 @@
                 <div class="form-group">
                     <label for="sdt" class="form-label">Phone Number</label>
                     <input type="text" class="form-control" id="sdt" name="sdt" placeholder="" value="0986892832">
+                </div>
+                <div class="form-group">
+                    <label for="que_quan" class="form-label">Que quan</label>
+                    <input type="text" class="form-control" id="que_quan" name="que_quan" placeholder="" value="Khoai Chau, Hung Yen">
                 </div>
                 <div class="form-group">
                     <label for="ma_phong_ban" class="form-label">Phong ban</label>

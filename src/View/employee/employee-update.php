@@ -12,7 +12,9 @@
                 <div class="form-group">
                     <label for="gioi_tinh" class="form-label">Gioi tinh</label>
                     <select name="gioi_tinh" id="gioi_tinh">
-                        <option value="<?php echo $employee[0]['gioi_tinh'] ?>"><?php echo $employee[0]['ho_ten'] ?></option>
+                        <option value="<?php echo $employee[0]['gioi_tinh'] ?>"><?php echo $employee[0]['gioi_tinh'] ?></option>
+                        <option value="nam">Nam</option>
+                        <option value="nu">Nu</option>
 
                     </select>
                 </div>
@@ -25,9 +27,12 @@
                     <input type="text" class="form-control" id="sdt" name="sdt" placeholder="" value="<?php echo $employee[0]['sdt'] ?>">
                 </div>
                 <div class="form-group">
-                    <label for="ten_phong_ban" class="form-label">Phong ban</label>
-                    <select class="form-select" id="ten_phong_ban" name="ten_phong_ban">
-                        <option value="">----</option>
+                    <label for="que_quan" class="form-label">Que Quan</label>
+                    <input type="text" class="form-control" id="que_quan" name="que_quan" placeholder="" value="<?php echo $employee[0]['que_quan'] ?>">
+                </div>
+                <div class="form-group">
+                    <label for="ma_phong_ban" class="form-label">Phong ban</label>
+                    <select class="form-select" id="ma_phong_ban" name="ma_phong_ban">
                         <?php
                         foreach ($department_list as $department) : ?>
                             <option value="<?php echo $department['ma_phong_ban'] ?>"><?php echo $department['ten_phong_ban'] ?></option>
@@ -35,9 +40,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="ten_chuc_vu" class="form-label">Chuc vu</label>
-                    <select class="form-select" id="ten_chuc_vu" name="ten_chuc_vu" required="">
-                        <option value="">----</option>
+                    <label for="ma_chuc_vu" class="form-label">Chuc vu</label>
+                    <select class="form-select" id="ma_chuc_vu" name="ma_chuc_vu" required="">
                         <?php
                         foreach ($position_list as $position) : ?>
                             <option value="<?php echo $position['ma_chuc_vu']; ?>"><?php echo $position['ten_chuc_vu']; ?></option>
@@ -57,8 +61,9 @@
                 </div>
                 <div class="form-group">
                     <label for="img" class="form-label">Img</label>
+                    <input type="file" class="form-control" id="img" name="img">
                     <input type="file" name="old_img" value="<?php echo $employee[0]['img'] ?>">
-                    <input type="file" class="form-control" id="img" name="img" placeholder="" value="<?php echo $employee[0]['img'] ?>">
+
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update Information</button>
