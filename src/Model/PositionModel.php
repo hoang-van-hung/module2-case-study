@@ -23,13 +23,11 @@ class PositionModel
 
     public function positionDetail($id)
     {
-
-        var_dump($id);
-        $sql ='SELECT * FROM positions where ma_chuc_vu=:id';
+        $sql ="SELECT * FROM positions where ma_chuc_vu='$id'";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(":ma_chuc_vu", $id);
+//        $stmt->bindValue(":ma_chuc_vu", $id);
         $stmt->execute();
-        var_dump($stmt->execute());
+        return $stmt->fetchAll();
     }
 
     public function delete($id)
@@ -50,13 +48,12 @@ class PositionModel
         $stmt->bindParam(":tien_phu_cap", $tien_phu_cap);
         $stmt->execute();
 
-//        return $stmt->fetchAll();
     }
 
-    public function positionUpdate($ma_chuc_vu, $ten_chuc_vu, $luong_co_ban, $tien_phu_cap)
+    public function positionUpdate($ma_chuc_vu,$ten_chuc_vu, $luong_co_ban, $tien_phu_cap)
     {
 
-        $sql ='UPDATE positions SET ma_chuc_vu=:ma_chuc_vu, ten_chuc_vu=:ten_chuc_vu,
+        $sql ='UPDATE positions SET ten_chuc_vu=:ten_chuc_vu,
                      luong_co_ban=:luong_co_ban,tien_phu_cap=:tien_phu_cap where ma_chuc_vu=:ma_chuc_vu';
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(":ma_chuc_vu", $ma_chuc_vu);
@@ -64,7 +61,7 @@ class PositionModel
         $stmt->bindParam(":luong_co_ban", $luong_co_ban);
         $stmt->bindParam(":tien_phu_cap", $tien_phu_cap);
         $stmt->execute();
-        var_dump($stmt->execute());
+
     }
 
 
