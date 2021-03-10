@@ -28,7 +28,7 @@ class PositionController
     public function delete($id)
     {
         $id= $_REQUEST['id'];
-        var_dump($id);
+//        var_dump($id);
         $this->positionModel->delete($id);
         $this->positionList();
     }
@@ -43,10 +43,10 @@ class PositionController
             $ten_chuc_vu = $_REQUEST['ten_chuc_vu'];
             $luong_co_ban = (int)$_REQUEST['luong_co_ban'];
             $tien_phu_cap = (int)$_REQUEST['tien_phu_cap'];
-            var_dump($ma_chuc_vu);
-            var_dump($ten_chuc_vu);
-            var_dump($luong_co_ban);
-            var_dump($tien_phu_cap);
+//            var_dump($ma_chuc_vu);
+//            var_dump($ten_chuc_vu);
+//            var_dump($luong_co_ban);
+//            var_dump($tien_phu_cap);
 
             $this->positionModel->addPosition($ma_chuc_vu, $ten_chuc_vu, $luong_co_ban, $tien_phu_cap);
             header("location:index.php?page=position-list");
@@ -60,10 +60,6 @@ class PositionController
         {
             $id = (int)$_REQUEST['id'];
             $position = $this->positionModel->positionDetail($id);
-            var_dump($id);
-            echo "<pre>";
-            var_dump($position[0]['ma_chuc_vu']);
-            var_dump("controller");
             include "src/View/position/position-update.php";
         }elseif ($_SERVER["REQUEST_METHOD"] == 'POST')
         {
@@ -71,10 +67,10 @@ class PositionController
             $ten_chuc_vu= $_REQUEST['ten_chuc_vu'];
             $luong_co_ban= (int)$_REQUEST['luong_co_ban'];
             $tien_phu_cap= (int)$_REQUEST['tien_phu_cap'];
-            var_dump($ma_chuc_vu);
-            var_dump($ten_chuc_vu);
-            var_dump($luong_co_ban);
-            var_dump($tien_phu_cap);
+//            var_dump($ma_chuc_vu);
+//            var_dump($ten_chuc_vu);
+//            var_dump($luong_co_ban);
+//            var_dump($tien_phu_cap);
 
             $result= $this->positionModel->positionUpdate($ma_chuc_vu, $ten_chuc_vu, $luong_co_ban, $tien_phu_cap);
 

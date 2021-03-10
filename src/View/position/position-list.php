@@ -1,4 +1,4 @@
-<a href="index.php?page=position-add">Them chuc vu</a>
+
 <table class="employee-list">
     <tr>
         <th>Ma chuc vu</th>

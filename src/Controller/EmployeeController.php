@@ -87,7 +87,6 @@ class EmployeeController
             var_dump($ma_chuc_vu);
             var_dump($bang_cap);die();*/
             $result = $this->employeeModel->addEmployee( $ho_ten, $gioi_tinh, $img, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap);
-            var_dump($result);
             header("location:index.php?page=employee-list");
         }
     }
@@ -114,18 +113,20 @@ class EmployeeController
             $ma_chuc_vu = (int)$_REQUEST['ma_chuc_vu'];
             $bang_cap = $_REQUEST['bang_cap'];
             $img = $_FILES['img']['name'];
+            $img_tmp = $_FILES['img']['tmp_name'];
+            move_uploaded_file($img_tmp,'img/'.$img);
             if ($img ==NULL){
                     $img=$_REQUEST['old_img'];
             }
-//            var_dump($ho_ten);
-//            var_dump($gioi_tinh);
-//            var_dump($ngay_sinh);
-//            var_dump($sdt);
-//            var_dump($que_quan);
-//            var_dump($ma_phong_ban);
-//            var_dump($ma_chuc_vu);
-//            var_dump($bang_cap);
-//            var_dump($img);
+          /*  var_dump($ho_ten);
+            var_dump($gioi_tinh);
+            var_dump($ngay_sinh);
+            var_dump($sdt);
+            var_dump($que_quan);
+            var_dump($ma_phong_ban);
+            var_dump($ma_chuc_vu);
+            var_dump($bang_cap);
+            var_dump($img);*/
             $this->employeeModel->updateStatus($id, $ho_ten, $gioi_tinh, $img, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap);
             header("location:index.php?page=employee-list");
         }

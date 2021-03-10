@@ -11,6 +11,6 @@
     <label for="tien_phu_cap">Tien phu cap</label>
     <input type="text" name="tien_phu_cap"> <br>
 
-    <button type="submit">Add position</button>
+    <button type="submit" class="btn btn-primary">Add position</button>
     <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
 </form>

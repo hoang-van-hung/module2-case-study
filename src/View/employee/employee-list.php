@@ -1,13 +1,13 @@
 
-
-<table class="employee-list">
+<table class="table table-hover table-bordered border-primary">
     <tr>
-        <th>ID</th>
-        <th>Full Name</th>
-        <th>Img</th>
-        <th>Department</th>
-        <th>Role</th>
-        <th>Level</th>
+        <th>Mã Nhân viên</th>
+        <th>Họ và Tên</th>
+        <th>Hình Ảnh</th>
+        <th>Phòng Ban </th>
+        <th>Vị Trí</th>
+        <th>Bằng Cấp </th>
+        <th>Action </th>
     </tr>
     <?php foreach ($employee_list as $key=> $employee): ?>
     <tr>
@@ -20,10 +20,10 @@
         <td><?php echo $employee['ten_phong_ban'] ?></td>
         <td><?php echo $employee['ten_chuc_vu'] ?></td>
         <td><?php echo $employee['bang_cap'] ?></td>
-        <td>
-        <td><button><a onclick="return confirm('Do you want to delete this employee <?php  echo $employee['ho_ten'] ?>')"
-                       href="index.php?page=employee-delete&id=<?php  echo $employee['id'] ?>">Delete</a></button></td>
+        <td><button type="submit" class="btn btn-warning"><a onclick="return confirm('Do you want to delete this employee <?php  echo $employee['ho_ten'] ?>')"
+                       href="index.php?page=employee-delete&id=<?php  echo $employee['id'] ?>">Delete</a></button>
         </td>
+
     </tr>
     <?php endforeach; ?>
 </table>

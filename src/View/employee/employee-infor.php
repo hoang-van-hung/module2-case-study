@@ -1,5 +1,5 @@
 <h2>Employee Information</h2>
-<table class="table-list">
+<table class="table table-hover table-bordered border-primary">
     <tr>
         <th>Employee ID</th>
         <td> <?php  echo $employee[0]['id'] ?></td>
@@ -39,6 +39,10 @@
         <th>Level</th>
         <td> <?php  echo $employee[0]['bang_cap'] ?></td>
     </tr>
-    <td><button><a href="index.php?page=employee-update&id=<?php  echo $employee[0]['id'] ?>">Update</a></button></td>
-    <td><button><a onclick="return confirm('Do you want to delete this employee <?php  echo $employee[0]['ho_ten'] ?>')" href="index.php?page=employee-delete&id=<?php  echo $employee[0]['id'] ?>">Delete</a></button></td>
+    <td>
+        <button class="btn btn-primary"><a href="index.php?page=employee-update&id=<?php  echo $employee[0]['id'] ?>">Update</a></button>
+        <button class="btn btn-warning"><a onclick="return confirm('Do you want to delete this employee <?php  echo $employee[0]['ho_ten'] ?>')"
+                                           href="index.php?page=employee-delete&id=<?php  echo $employee[0]['id'] ?>">Delete</a></button>
+    </td>
+
 </table>
