@@ -58,7 +58,7 @@ class EmployeeController
 
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $employees = $this->employeeModel->getAll();
-            $department_list = $this->departmentModel->departmentAll();
+            $department_list = $this->departmentModel->departmentList();
             $position_list = $this->positionModel->positionList();
 //            echo "<pre>";
 //            var_dump($department_list);

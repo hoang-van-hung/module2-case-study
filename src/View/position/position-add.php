@@ -1,16 +1,39 @@
-<form method="post">
-    <label for="ma_chuc_vu">Ma Chuc Vu</label>
-    <input type="text" name="ma_chuc_vu"> <br>
 
-    <label for="ten_chuc_vu">Ten Chuc Vu</label>
-    <input type="text" name="ten_chuc_vu"> <br>
+<div class="container" style="margin-top: 40px;">
+    <main>
+        <div class="row g-3">
+            <div class="col-md-12 col-lg-12">
+                <h4 class="mb-3">Add Position</h4>
+                <form class="needs-validation"  method="POST" enctype="multipart/form-data">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="ma_chuc_vu" class="form-label">Mã Chức Vụ</label>
+                            <input type="text" class="form-control" id="ma_chuc_vu" name="ma_chuc_vu" placeholder="" value="" >
+                        </div>
 
-    <label for="luong_co_ban">Luong co ban</label>
-    <input type="text" name="luong_co_ban"> <br>
+                        <div class="col-sm-6">
+                            <label for="ten_chuc_vu" class="form-label">Tên Chức Vụ</label>
+                            <input type="text" class="form-control" id="ten_chuc_vu" name="ten_chuc_vu" placeholder="" value="" >
+                        </div>
 
-    <label for="tien_phu_cap">Tien phu cap</label>
-    <input type="text" name="tien_phu_cap"> <br>
+                        <div class="col-sm-6">
+                            <label for="luong_co_ban" class="form-label">Lương Cơ Bản</label>
+                            <input type="number" class="form-control" id="luong_co_ban" name="luong_co_ban" placeholder="" value="" >
+                        </div>
 
-    <button type="submit" class="btn btn-primary">Add position</button>
-    <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
-</form>
+                        <div class="col-sm-6">
+                            <label for="tien_phu_cap" class="form-label">Tiền Phụ Cấp</label>
+                            <input type="text" class="form-control" id="tien_phu_cap" name="tien_phu_cap" placeholder="" value="" >
+                        </div>
+
+                    </div>
+                    <hr class="col-md-4">
+                    <button class="btn btn-primary" type="submit">Add Position</button>
+                    <button class="btn btn-secondary" onclick="window.history.go(-1); return false;">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+

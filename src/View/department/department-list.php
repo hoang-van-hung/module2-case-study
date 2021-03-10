@@ -1,30 +1,28 @@
-<table class="employee-list">
+<table class="table table-hover table-bordered border-primary" style="width: 80%; text-align: center;margin: auto">
     <tr>
-        <th>Ma phong ban</th>
-        <th>Ten phong ban</th>
-        <th>So dien thoai</th>
-        <th>Dia chi</th>
+        <th>Mã Phòng Ban</th>
+        <th>Tên Phòng Ban</th>
+        <th>Số Điện Thoại</th>
+        <th>Địa Chỉ</th>
+        <th>Action</th>
     </tr>
     <?php foreach ($department_list as $key=> $department): ?>
         <tr>
             <td>
-                <a href="index.php?page=employee-infor&id=<?php echo $department['ma_phong_ban']; ?>">
-                    <?php echo $department['ma_phong_ban']; ?></a>
+                    <?php echo $department['ma_phong_ban']; ?>
             </td>
             <td><?php echo $department['ten_phong_ban']; ?></td>
             <td><?php echo $department['ma_phong_ban']; ?></td>
             <td><?php echo $department['ma_phong_ban']; ?></td>
-            <td><button><a href="index.php?page=position-update&id=<?php echo $department[0]['ma_phong_ban']; ?>">Update</a></button></td>
-            <td><button><a href="index.php?page=position-delete&id=<?php echo $department[0]['ma_phong_ban']; ?>">Delete</a></button></td>
+            <td><button class="btn btn-primarykey">
+                    <a href="index.php?page=department-update&id=<?php echo $department['ma_phong_ban']; ?>">Update</a>
+
+                <button class="btn btn-warning">
+                    <a  onclick="return confirm('Do you want to delete department <?php echo $department['ten_phong_ban']; ?>')"
+                            href="index.php?page=department-delete&id=<?php echo $department['ma_phong_ban']; ?>">Delete</a>
+                </button>
+            </td>
         </tr>
     <?php endforeach; ?>
-
-    <select class="form-select" id="supplier_id" name="ma_phong_ban" required="">
-        <option value="">----</option>
-        <?php
-        foreach ($department_list as $key=> $department) : ?>
-            <option value="<?php echo $department['ma_phong_ban']; ?>"><?php echo $department['ten_phong_ban']; ?></option>
-        <?php endforeach; ?>
-    </select>
 
 </table>
