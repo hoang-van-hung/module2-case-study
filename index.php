@@ -46,11 +46,11 @@ $salaryController = new SalaryController();
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="index.php?page=employee-list">Danh Sách Nhân Viên</a></li>
-                        <li><a class="dropdown-item" href="index.php?page=salary-líst">Bảng Lương</a></li>
+                        <li><a class="dropdown-item" href="index.php?page=employee-add">Thêm Nhân Viên</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="index.php?page=employee-add">Thêm Nhân Viên</a></li>
+                        <li><a class="dropdown-item" href="index.php?page=salary-líst">Bảng Lương</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -138,6 +138,10 @@ switch ($page) {
         break;
     case 'salary-líst':
         $salaryController->salaryList();
+        break;
+    case 'salary-detail':
+        $id = (int)$_REQUEST['id'];
+        $salaryController->showSalary($id);
         break;
 
     default :

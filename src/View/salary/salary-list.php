@@ -2,20 +2,17 @@
     <tr>
         <th>Mã Nhân Viên</th>
         <th>Tên Nhân Viên</th>
-        <th>Lương Cơ Bản</th>
-        <th>Tiền Phụ Cấp</th>
-        <th>Tên Khen Thưởng</th>
-        <th>Tiền Khen Thưởng</th>
-        <th>Tên Kỷ Luật</th>
-        <th>Tiền Kỷ Luật</th>
-        <th>Tên Bảo Hiểm</th>
-        <th>Số Tiền Bảo Hiểm</th>
         <th>Lương Thực Tế</th>
     </tr>
-
-    <tr>
-
-    </tr>
-
+    <?php foreach ($salary_list as $key=> $salary): ?>
+        <tr>
+            <td>
+                <a href="index.php?page=salary-detail&id=<?php echo $salary['id']; ?>">
+                    <?php echo $salary['id']; ?></a>
+            </td>
+            <td><?php echo $salary['ho_ten']; ?></td>
+            <td><?php echo $salary['totalMoney']; ?></td>
+        </tr>
+    <?php endforeach; ?>
 </table>
 

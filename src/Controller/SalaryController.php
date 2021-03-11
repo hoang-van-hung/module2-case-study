@@ -19,15 +19,37 @@ class SalaryController
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $salary_list = $this->salaryModel->getAllSalary();
-            echo "<pre>";
-            var_dump($salary_list[0]);
             include "src/View/salary/salary-list.php";
 
-        } /*else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $search = $_POST['search'];
-            $salary_list = $this->salaryModel->getAllSalary();
+            $salary_list = $this->salaryModel->searchSalary($search);
             include "src/View/salary/salary-list.php";
-        }*/
+        }
     }
+
+    public function showSalary($id)
+    {
+        $salary=$this->salaryModel->salaryDeetail($id);
+
+        /*if ($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : 0;
+            if ($id != 0)
+            {
+                $this->salaryModel->salaryDeetail($id);
+                header("location:index.php?page=employee-list");
+            }
+        }*/
+        include "src/View/salary/salary-detail.php";
+    }
+
+
+
+
+
+
+
+
 
 }
