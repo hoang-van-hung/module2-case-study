@@ -1,5 +1,5 @@
 
-<div class="container" style="margin-top: 40px;">
+<div class="container" style="margin-top: 40px;margin:auto">
     <main>
         <div class="row g-3">
             <div class="col-md-12 col-lg-12">

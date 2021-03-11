@@ -1,5 +1,5 @@
 
-<div class="container" style="width: 68%">
+<div class="container" style="width: 68%;margin:auto">
     <div class="row">
         <div class="col-6">
             <div class="card" style="width: 20rem;">

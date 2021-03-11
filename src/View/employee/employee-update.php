@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 40px;">
+<div class="container" style="margin-top: 40px;margin:auto">
     <main>
         <div class="row g-3">
             <div class="col-md-12 col-lg-12">
@@ -55,11 +55,11 @@
 
                             <label for="bang_cap" class="form-label">Bằng Cấp</label>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="bang_cap">
-                                <option value="Thac si">Thạc Sĩ</option>
-                                <option value="Tien si">Tiến Sĩ</option>
-                                <option value="Dai hoc">Đại Học</option>
-                                <option value="Cao dang">Cao Đẳng</option>
-                                <option value="Trung cap">Trung Cấp</option>
+                                <option value="Thạc Sĩ">Thạc Sĩ</option>
+                                <option value="Tiến Sĩ">Tiến Sĩ</option>
+                                <option value="Đại Học">Đại Học</option>
+                                <option value="Cao Đẳng">Cao Đẳng</option>
+                                <option value="Trung Cấp">Trung Cấp</option>
                             </select>
                         </div>
                         <div class="col-md-3 col-md-offset-3">

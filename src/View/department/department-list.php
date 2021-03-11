@@ -1,4 +1,4 @@
-<table class="table table-hover table-bordered border-primary" style="width: 80%; text-align: center;margin: auto">
+<table class="table table-hover table-bordered border-primary" style="width: 80%; text-align: center;margin: auto;margin-top: 40px">
     <tr>
         <th>Mã Phòng Ban</th>
         <th>Tên Phòng Ban</th>
@@ -14,7 +14,7 @@
             <td><?php echo $department['ten_phong_ban']; ?></td>
             <td><?php echo $department['ma_phong_ban']; ?></td>
             <td><?php echo $department['ma_phong_ban']; ?></td>
-            <td><button class="btn btn-primarykey">
+            <td><button class="btn btn-info">
                     <a href="index.php?page=department-update&id=<?php echo $department['ma_phong_ban']; ?>">Update</a>
 
                 <button class="btn btn-warning">

@@ -1,4 +1,4 @@
-<table class="table table-hover table-bordered border-primary" style="text-align: center">
+<table class="table table-hover table-bordered border-primary" style="text-align: center;margin:auto; width: 95%;margin-top: 40px" >
     <tr>
         <th>Mã Nhân viên</th>
         <th>Họ và Tên</th>

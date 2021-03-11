@@ -14,7 +14,7 @@ class SalaryModel
 
     public function getAllSalary()
     {
-        $sql = "SELECT id, ho_ten, (luong_co_ban + tien_phu_cap + so_tien_thuong - so_tien_phat - so_tien) as totalMoney FROM v_salary";
+        $sql = "SELECT id, ho_ten, (luong_co_ban + tien_phu_cap + so_tien_thuong - so_tien_phat - so_tien) as totalMoney FROM v_salary order by id";
         $stmt = $this->database->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
