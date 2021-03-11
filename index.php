@@ -4,12 +4,14 @@ ob_start();
 use App\Controller\EmployeeController;
 use App\Controller\PositionController;
 use App\Controller\DepartmentController;
+use App\Controller\SalaryController;
 
 require __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $employeeController = new EmployeeController();
 $positionController = new PositionController();
 $departmentController = new DepartmentController();
+$salaryController = new SalaryController();
 
 ?>
 <html lang="en">
@@ -30,7 +32,7 @@ $departmentController = new DepartmentController();
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid" style="text-align: center">
-        <a class="navbar-brand" href="#">HOME</a>
+        <a class="navbar-brand" href="index.php?page=employee-list">HOME</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,7 +46,7 @@ $departmentController = new DepartmentController();
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="index.php?page=employee-list">Danh Sách Nhân Viên</a></li>
-                        <li><a class="dropdown-item" href="#">Bảng Lương</a></li>
+                        <li><a class="dropdown-item" href="index.php?page=salary-líst">Bảng Lương</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -133,6 +135,9 @@ switch ($page) {
     case 'department-update':
         $id = $_REQUEST['id'];
         $departmentController->departmentUpdate($id);
+        break;
+    case 'salary-líst':
+        $salaryController->salaryList();
         break;
 
     default :

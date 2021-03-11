@@ -45,6 +45,7 @@ class EmployeeModel
 
     public function updateStatus($id, $ho_ten, $gioi_tinh, $img, $ngay_sinh, $sdt, $que_quan, $ma_phong_ban, $ma_chuc_vu, $bang_cap)
     {
+        var_dump("part 2");
         $sql = 'UPDATE employees SET ho_ten=:ho_ten,gioi_tinh=:gioi_tinh,img=:img,ngay_sinh=:ngay_sinh,
                      sdt=:sdt,que_quan=:que_quan,ma_phong_ban=:ma_phong_ban,ma_chuc_vu=:ma_chuc_vu,bang_cap=:bang_cap WHERE id=:id';
         $stmt = $this->database->prepare($sql);

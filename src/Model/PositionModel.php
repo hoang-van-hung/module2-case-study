@@ -16,7 +16,8 @@ class PositionModel
 
     public function positionList()
     {
-        $sql = "SELECT * FROM positions order by ma_chuc_vu ASC";
+
+        $sql = "SELECT * FROM positions";
         $stmt = $this->database->query($sql);
         return $stmt->fetchAll();
     }

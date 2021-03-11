@@ -96,10 +96,13 @@ class EmployeeController
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $id= $_REQUEST['id'];
             $employee = $this->employeeModel->detail($id);
-            $department_list = $this->departmentModel->departmentAll();
+            $department_list = $this->departmentModel->departmentList();
             $position_list = $this->positionModel->positionList();
+//            var_dump($employee);
+//            var_dump($position_list);
+//            var_dump($department_list);
+
             include "src/View/employee/employee-update.php";
-            echo "<pre>";
     }else if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
 

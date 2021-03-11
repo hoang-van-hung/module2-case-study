@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Model;
-
+use PDO;
 class SalaryModel
 {
     protected $database;
@@ -14,8 +14,7 @@ class SalaryModel
 
     public function getAllSalary()
     {
-
-        $sql = "SELECT * FROM v_employee_salary order by id ASC";
+        $sql = "SELECT * FROM v_salary";
         $stmt = $this->database->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
