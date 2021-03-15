@@ -54,8 +54,7 @@ class PositionModel
     public function positionUpdate($ma_chuc_vu,$ten_chuc_vu, $luong_co_ban, $tien_phu_cap)
     {
 
-        $sql ='UPDATE positions SET ten_chuc_vu=:ten_chuc_vu,
-                     luong_co_ban=:luong_co_ban,tien_phu_cap=:tien_phu_cap where ma_chuc_vu=:ma_chuc_vu';
+        $sql ='UPDATE positions SET ten_chuc_vu=:ten_chuc_vu,luong_co_ban=:luong_co_ban,tien_phu_cap=:tien_phu_cap where ma_chuc_vu=:ma_chuc_vu';
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(":ma_chuc_vu", $ma_chuc_vu);
         $stmt->bindParam(":ten_chuc_vu", $ten_chuc_vu);

@@ -56,7 +56,7 @@ class DepartmentController
             include "src/View/department/department-update.php";
         }elseif ($_SERVER["REQUEST_METHOD"] == 'POST')
         {
-            $ma_phong_ban = $_REQUEST['ma_phong_ban'];
+            $ma_phong_ban = $_REQUEST['id'];
             $ten_phong_ban = $_REQUEST['ten_phong_ban'];
             $sdt = $_REQUEST['sdt'];
             $dia_chi = $_REQUEST['dia_chi'];
@@ -66,6 +66,7 @@ class DepartmentController
 //            var_dump($tien_phu_cap);
 
             $this->departmentModel->departmentUpdate($ma_phong_ban, $ten_phong_ban, $sdt, $dia_chi);
+            header("location:index.php?page=department-list");
 
         }
     }
