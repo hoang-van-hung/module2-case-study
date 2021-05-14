@@ -72,7 +72,7 @@ class PositionController
 //            var_dump($luong_co_ban);
 //            var_dump($tien_phu_cap);
             $this->positionModel->positionUpdate($ma_chuc_vu, $ten_chuc_vu, $luong_co_ban, $tien_phu_cap);
-            header("location:index.php?page=department-list");
+            header("location:index.php?page=position-list");
 
         }
     }
